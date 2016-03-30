@@ -1,0 +1,10 @@
+<% if @recent.empty? %>
+	<a href="#" class="collection-item">No link(s) added yet!</a>
+<% else %>
+	<% @recent.each do |url| %>
+		<a href="<%= full_url(url) %>" class="collection-item small" target="_blank">
+			<%= full_url(url) %>
+				<i class="material-icons right">visibility</i>
+		</a>
+	<% end %>
+<% end %>		
