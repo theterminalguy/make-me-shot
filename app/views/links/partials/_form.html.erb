@@ -1,0 +1,39 @@
+	<%= form_for(@link) do |f| %>
+  <% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% @link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% if @link.persisted? %>
+  <div class="switch">
+    <label>
+      Disable
+      <%= f.check_box :active %>
+      <span class="lever"></span>
+      Enable
+    </label>
+  </div>
+  <br />
+  
+<% end %> 
+  <div class="field">
+    <%= f.text_field :long, placeholder: 'Enter URL', required: true %>
+  </div>
+ 
+ <% if user_signed_in? %>	
+	<div class="field">
+	  <%= f.text_field :short, placeholder: 'Enter Slug (optional)' %>
+	</div>
+ <% end %>
+  <div class="actions">
+    <%= f.submit class:"btn waves-effect waves-light", id:'short_it' %>
+  </div>
+<% end %>
+	
