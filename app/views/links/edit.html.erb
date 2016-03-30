@@ -1,0 +1,25 @@
+<div class="row">
+<%= render 'shared/side_bar' %>
+
+
+  	<div class="col s9">
+  		<h2 class="tab">Edit Links</h2>
+  		<div class="divider"></div>
+  		<div class="row">
+  			<div class="col s12">
+
+
+<%= render 'links/partials/form' %> <br />
+
+
+
+	<div class="right">
+		<%= link_to 'Show', show_link_path(@link) %> |
+		<%= link_to 'Back', user_dashboard_path %>  				  			
+	</div>
+</div>
+  		</div>
+  	</div>
+
+
+</div>

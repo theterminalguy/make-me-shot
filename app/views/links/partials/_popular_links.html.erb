@@ -1,0 +1,11 @@
+<% if @popular_links.empty? %>
+	<a href="#" class="collection-item">No popular links yet!</a>
+<% else %>
+	<% @popular_links.each do |link| %>
+			<a href="<%= full_url(link.short) %>" class="collection-item small" target="_blank"><%= full_url(link.short) %>
+			<span class="new badge"><%= link.click_count %></span>
+		</a>
+	<% end %>
+<% end %>
+
+
