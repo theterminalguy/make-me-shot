@@ -18,6 +18,7 @@ config/secrets.yml
 
 ## Environment normalization:
 /.bundle
+.bundle/
 /vendor/bundle
 
 # these should all be checked in to normalize the environment:
