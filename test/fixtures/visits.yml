@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link_id: 1
+  ip: MyString
+  browser: MyString
+  browser_version: MyString
+  os: MyString
+
+two:
+  link_id: 1
+  ip: MyString
+  browser: MyString
+  browser_version: MyString
+  os: MyString
