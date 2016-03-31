@@ -28,6 +28,9 @@ gem "font-awesome-sass"
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
 
+gem 'coveralls', require: false
+gem "codeclimate-test-reporter", group: :test, require: nil
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
