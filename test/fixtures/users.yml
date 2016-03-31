@@ -1,0 +1,9 @@
+user1:
+  full_name: "Tom Cat"
+  email: tom@cat.com
+  encrypted_password: <%= BCrypt::Password.create "password"  %>
+  
+user2:
+  full_name: "Jerry Mouse"
+  email: jerry@mouse.com 
+  encrypted_password: <%= BCrypt::Password.create "password" %>
