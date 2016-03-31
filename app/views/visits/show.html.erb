@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @visit.link_id %>
+</p>
+
+<p>
+  <strong>Ip:</strong>
+  <%= @visit.ip %>
+</p>
+
+<p>
+  <strong>Browser:</strong>
+  <%= @visit.browser %>
+</p>
+
+<p>
+  <strong>Browser version:</strong>
+  <%= @visit.browser_version %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @visit.os %>
+</p>
+
+<%= link_to 'Edit', edit_visit_path(@visit) %> |
+<%= link_to 'Back', visits_path %>
