@@ -1,0 +1,97 @@
+
+<div class="container">
+	<div class="row center">
+		<div class="col s12">
+		<h2 class="tab">Sign up</h2>
+	</div>
+</div>
+
+<div class="row center jumbo">
+	
+	<div class="nav-wrapper">
+		
+		<div class="row">
+      				
+				<div class="col l4 offset-l4">
+					<button class="btn col s12 red"><i class="fa fa-google-plus-square"></i> Google</button>
+				</div>
+      		</div>
+      		
+      		
+      		<div class="row">
+      				
+				<div class="col l4 offset-l4">
+					<button class="btn col s12 blue"><i class="fa fa-twitter-square"></i> Twitter</button>
+				</div>
+      		</div>
+      		
+      		
+      		<div class="row">
+      				
+				<div class="col l4 offset-l4">
+					<button class="btn col s12 purple"><i class="fa fa-facebook-square"></i> Facebook</button>
+				</div>
+      		</div>
+      		
+      		<div class="row">
+      			<div class="col s12 center">
+      				<h3 class="tab">OR</h3>
+      			</div>
+      		</div>
+      		
+      		
+      		
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %> 
+    <div class="card">
+      		
+        <div class="row">
+        	<div class="col s6">
+        			<%= f.text_field :full_name, autofocus: true, placeholder: 'Full Name' %>
+        		</div>
+        		
+        		<div class="col s6">
+        			<%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
+        		</div>   		
+        </div>
+        		
+        <div class="row">
+        		<div class="col s6">
+    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password: min of 6 characters' %>
+        		</div>
+        		
+        		<div class="col s6">
+
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Re-type Password' %>
+        		</div>   		
+        		
+        	</div>
+        </div>
+
+        	
+        </div>
+        
+        
+    <div class="row">
+          <div class="col s12">
+          	
+  			<%= f.submit "Register", class: "btn waves-effect waves-light", id:'reg' %>
+  </div>
+        </div>    
+
+<% end %>
+
+<%= render "devise/shared/links" %>
+    </div>
+
+</div>
+	
+</div>
+
+
+
+
+
+
+
+

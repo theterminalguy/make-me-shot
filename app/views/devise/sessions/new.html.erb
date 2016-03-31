@@ -1,0 +1,95 @@
+
+<div class="container">
+	<div class="row center">
+		<div class="col s12">
+		<h2 class="tab">Log in</h2>
+	</div>
+</div>
+
+<div class="row center jumbo">
+	
+	<div class="nav-wrapper">
+		
+		<div class="row">
+      				
+				<div class="col l4 offset-l4">
+					<button class="btn col s12 red"><i class="fa fa-google-plus-square"></i> Google</button>
+				</div>
+      		</div>
+      		
+      		
+      		<div class="row">
+      				
+				<div class="col l4 offset-l4">
+					<button class="btn col s12 blue"><i class="fa fa-twitter-square"></i> Twitter</button>
+				</div>
+      		</div>
+      		
+      		
+      		<div class="row">
+      				
+				<div class="col l4 offset-l4">
+					<button class="btn col s12 purple"><i class="fa fa-facebook-square"></i> Facebook</button>
+				</div>
+      		</div>
+      		
+      		<div class="row">
+      			<div class="col s12 center">
+      				<h3 class="tab">OR</h3>
+      			</div>
+      		</div>
+      		
+      		
+      		
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, id: "flash_#{name}", class: "card-panel err" %>
+<% end %> 
+    
+    <div class="card">
+      		
+        <div class="row">
+        	<div class="col s12">
+        			
+        			<%= f.email_field :email, autofocus: true, placeholder: 'Email'%>
+        		</div>
+        </div>
+        		
+        <div class="row">
+        		<div class="col s12">
+        			<%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+        		</div>
+        		
+        	</div>
+        </div>
+        
+        <div class="row">
+        	<div class="col s12">
+        		<% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+        		</div>
+        	</div>
+    <div class="row">
+          <div class="col s12">
+          	
+  			<%= f.submit "Log in", class:"btn waves-effect waves-light" %>
+  </div>
+        </div>    
+
+<% end %>
+
+<%= render "devise/shared/links" %>
+    </div>
+
+</div>
+	
+</div>
+
+	
+
+
+
