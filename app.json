@@ -1,0 +1,13 @@
+{
+  "name": "make-me-shot",
+  "scripts": {
+  },
+  "env": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
