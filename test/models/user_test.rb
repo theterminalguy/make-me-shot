@@ -2,32 +2,39 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   
-  def setup
-    @user = users(:user1)
-    @user2 = users(:user2)
+  setup do 
+    @user = users(:one)
+    @user2 = users(:two)
   end
   
-  def test_valid
+  test "user_valid" do 
     assert @user.save 
   end
   
-  def test_invalid_without_email
+  test "invalid_without_email" do 
     @user.email = nil 
     refute @user.valid?
   end
   
-  def test_match_email_pattern
+  test "match_email_pattern" do 
     assert_match(%r{^.+@.+$}, @user.email)
   end
   
-  def test_uniqueness_of_email
+  test "uniqueness_of_email" do 
     refute_same @user.email, @user2.email 
   end
   
-  def test_invalid_without_full_name
+  test "invalid_without_full_name" do 
     @user.full_name = nil
     
     refute @user.valid? 
   end
   
+  test "presence_of_encrypted_password" do
+    assert @user.encrypted_password 
+  end
+  
+  test "has_many_links" do
+    refute_nil @user.links 
+  end 
 end

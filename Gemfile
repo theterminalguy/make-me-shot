@@ -27,6 +27,9 @@ gem "font-awesome-sass"
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
+ 
+gem 'coveralls', require: false
+gem "codeclimate-test-reporter", group: :test, require: nil
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -37,6 +40,7 @@ gem "font-awesome-sass"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'minitest-rails', git:'https://github.com/blowmage/minitest-rails.git'
 end
 
 group :development do
