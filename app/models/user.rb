@@ -13,6 +13,5 @@ class User < ActiveRecord::Base
     order('links_count desc').select(:full_name, :created_at, :links_count).
         limit(3)
   }
-  
-  
+    
 end
