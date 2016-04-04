@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+namespace :api do
+  namespace :v1 do
+    get '/users/info/:auth_token' => 'users#info'
+    get '/users/links/:auth_token' => 'users#links'
+    get '/users/links/recent/:auth_token' => 'users#recent'
+    get '/users/links/popular/:auth_token' => 'users#popular_urls'
+    get '/users/popular/:auth_token' => 'users#popular_users'
+  end
+end
+
   resources :visits
   get '/recent_urls' => 'links#recent', as: 'recent_urls'
   get '/top_users' => 'links#top_users', as: 'top_users'
@@ -19,10 +30,5 @@ Rails.application.routes.draw do
   get '/update/:id/' => 'links#edit', as: 'update_link'
   get '/:short_url' => 'redirect#show', as: 'short'
   get '/pages/:page' => 'pages#show'
-  root 'pages#index'
+  root 'pages#index' 
 end
-
-#api/to_short/url/api_key
-#api/popular_users/api_key
-#api/popular_urls/api_key
-#api/recently_added/api_key

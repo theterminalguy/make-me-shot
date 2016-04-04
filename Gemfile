@@ -18,12 +18,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
+gem 'simple_token_authentication'
 gem 'omniauth-facebook'
 gem 'omniauth-google'
 gem 'omniauth-twitter'
 gem 'useragent'
 gem "materialize-sass"
 gem "font-awesome-sass"
+gem 'active_hash_relation'
+gem 'active_model_serializers', '0.9.3'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
