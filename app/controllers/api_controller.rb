@@ -1,6 +1,11 @@
 class ApiController < ApplicationController
   
-  def to_short 
+  def initialzie(token)
+    @token 
+  end
+
+  def short_it(url, slug)
+    User.find_by_authentication_token(@token)
   end
   
   def popular_users

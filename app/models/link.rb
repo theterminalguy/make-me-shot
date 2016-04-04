@@ -1,4 +1,6 @@
 class Link < ActiveRecord::Base
+    acts_as_token_authenticatable
+
   attr_accessor :short_url 
   belongs_to :user, counter_cache: true
   has_many :visits 
@@ -30,6 +32,11 @@ class Link < ActiveRecord::Base
     order("click_count DESC")
     .select(:short, :click_count)
     .limit(5).to_a
+  }
+  
+  scope :api_popular_links, lambda {
+    order("click_count DESC")
+    .select(:short, :long, :click_count, :active, :created_at)
   }
   
   def to_short_url

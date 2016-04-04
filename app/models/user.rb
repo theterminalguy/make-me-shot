@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  acts_as_token_authenticatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:twitter],
@@ -12,6 +11,10 @@ class User < ActiveRecord::Base
   scope :popular_users, lambda {
     order('links_count desc').select(:full_name, :created_at, :links_count).
         limit(3)
+  }
+  
+  scope :api_popular_users, lambda {
+    order('links_count DESC').select(:full_name, :created_at, :email, :links_count)
   }
     
 end
