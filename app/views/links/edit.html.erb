@@ -14,8 +14,14 @@
 
 
 	<div class="right">
-		<%= link_to 'Show', show_link_path(@link) %> |
-		<%= link_to 'Back', user_dashboard_path %>  				  			
+		<%= link_to show_link_path(@link) do %>
+			<i class="fa fa-eye"></i> view
+
+		<% end %>
+		|
+		<%= link_to user_dashboard_path do %>
+			<i class="fa fa-chevron-left"></i> Back
+		<% end %>
 	</div>
 </div>
   		</div>

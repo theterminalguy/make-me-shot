@@ -12,10 +12,8 @@ Devise.setup do |config|
   config.password_length = 6..72
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
-  
-  config.omniauth :twitter, "Y87jHwQlnDyTqYP17MsQtSEIm", "5BlLwxVVkFPbtR951eC3WPBv58mFCFNf5g6AzX1KyRzuMTBaaQ
-"
-    config.secret_key = '9a98c0a1692eccf326a0f3df404f24fa8e1855f44ec8005ba07aa04162a627c7aba9a27c88911c1daadbb9bf64551960f62eb90c8a48c731eeaa872c2da7ee08'
+
+  config.secret_key = '9a98c0a1692eccf326a0f3df404f24fa8e1855f44ec8005ba07aa04162a627c7aba9a27c88911c1daadbb9bf64551960f62eb90c8a48c731eeaa872c2da7ee08'
   
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting

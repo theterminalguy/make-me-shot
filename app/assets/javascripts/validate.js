@@ -1,9 +1,13 @@
 $(document).ready(function(){
     $('#short_it').click(function(e){
-        var url = $('#link_long').val();
-        
+        var url = $('#link_long').val();     
         if(!isUrlValid(url)) {
             Materialize.toast('Please enter a valid url', 3000);
+            e.preventDefault();
+        }
+        
+        if (isSameOrigin(url)) {
+            Materialize.toast("Sorry, we don't allow redirect to same origin!", 3000);
             e.preventDefault();
         }
     });
@@ -24,4 +28,10 @@ function isUrlValid(url) {
 
 function isFullNameValid() {
    return (/\w+\s+\w+/.test($("#user_full_name").val()));
+}
+
+function isSameOrigin(url) {
+    if (url.indexOf('make-me-shot') >= 0 ){
+        return true; 
+    }
 }

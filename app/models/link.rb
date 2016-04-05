@@ -23,7 +23,7 @@ class Link < ActiveRecord::Base
   
   scope :recently_added, lambda {
     order("created_at DESC")
-    .pluck(:short).take(7)
+    .pluck(:short).take(5)
   }
   
   scope :popular_links, lambda {

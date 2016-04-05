@@ -12,5 +12,9 @@ module ApplicationHelper
       
       toast.html_safe 
     end 
-  end 
+  end
+  
+  def active_class(link_path, css)
+   current_page?(link_path) ? css : ""
+  end
 end

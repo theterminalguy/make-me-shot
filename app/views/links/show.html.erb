@@ -25,7 +25,7 @@
 		
 		<p>
 		  <b>Click count:</b>
-		  <%= @link.click_count %> click(s)
+		  <%= @link.click_count %> clicks
 		</p>
 		
 		<p>
@@ -43,8 +43,13 @@
 		</p>	
 
 	<div class="right">
-		<%= link_to 'Edit', update_link_path(@link) %> |
-		<%= link_to 'Back', user_dashboard_path %>
+		<%= link_to update_link_path(@link) do %>
+			<i class="fa fa-pencil"></i> Edit
+		<% end %> 
+		|
+		<%= link_to user_dashboard_path do %>
+			<i class="fa fa-chevron-left"></i> Back
+		<% end %> 
 	</div>
 	
   				  			</div>

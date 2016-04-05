@@ -1,12 +1,5 @@
 <div class = "navbar-fixed">
 	
-		
-<ul id="dropdown" class="dropdown-content">
-  <li><a href="#!">Help</a></li>
-  <li><a href="#!">Settings</a></li>
-  <li class="divider"></li>
-  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-</ul>
 
 	<nav>
     <div class="nav-wrapper">
@@ -14,24 +7,24 @@
       <a href="/" class="brand-logo left"><span id="log">make-me-shot</span></a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-      
-      <% if user_signed_in? %>	
-      		<li><%= link_to 'Dashboard', user_dashboard_path %></li>
-      	<% else %>
-      		<li class="active"><%= link_to 'Home', '/pages/index' %></li>		
-      	<li><%= link_to 'About', '/pages/about' %></li>
-      	<li><%= link_to 'Contact', '/pages/contact' %></li>
-      	<li><%= link_to 'Advertise', '/pages/advertise' %></li>
+      		
+      <% unless user_signed_in?  %>
+      		<li class="<%= active_class(root_url, 'active') %>"><%= link_to 'Home', root_url %></li>		
+      	<li class="<%= active_class('/pages/about', 'active') %>"><%= link_to 'About', '/pages/about' %></li>
+      	<li class="<%= active_class('/pages/contact', 'active') %>"><%= link_to 'Contact', '/pages/contact' %></li>
+      	<li class="<%= active_class('/pages/advertise', 'active') %>"><%= link_to 'Advertise', '/pages/advertise' %></li>
       <% end %>
       
       	<% if user_signed_in? %>
       	      	
-      	      	<li><a class="dropdown-button" href="#!" data-activates="dropdown">
-      	      		<%= current_user.full_name %>
-        	<i class="material-icons right">arrow_drop_down</i></a></li>
+      	      	<li><%= link_to current_user.full_name, user_dashboard_path %></li>
+				<li><%= link_to destroy_user_session_path, method: :delete do %>
+						<i class="fa fa-sign-out"></i>
+					<% end %>
+				</li>
       	 <% else %>
-      	 		<li><%= link_to 'Sign Up', '/register'%></li>
-      	 		<li><%= link_to 'Login', '/login'%></li>
+      	 		<li class="<%= active_class('/register', 'active') %>"><%= link_to 'Sign Up', '/register'%></li>
+      	 		<li class="<%= active_class('/login', 'active') %>"><%= link_to 'Login', '/login'%></li>
       	<% end %>
       </ul>
     </div>

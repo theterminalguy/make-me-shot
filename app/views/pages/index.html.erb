@@ -10,8 +10,16 @@
 	<div class="row">
 		<% if flash[:notice] %>
 			<div class="col s12">
+			
+
 				<div id="shot_url" class="card-panel">
-					<h5><%= full_url(notice) %></h5>
+					<h5 id="copy_target"><%= full_url(notice) %></h5>
+					
+					<span class="pull-right">
+						<button class="btn waves-effect waves-light blue-grey" id="btn_copy" data-clipboard-target="#copy_target">Copy
+    <i class="material-icons right"></i>
+						</button>
+					</span>
 				</div>
 			</div>
 		<% end %> 
