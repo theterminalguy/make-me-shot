@@ -24,6 +24,10 @@ class LinksController < ApplicationController
   def show
   end
   
+  def api_key
+    @api_key = current_user.authentication_token 
+  end
+  
   def new
     if current_user
         @link = current_user.links.new

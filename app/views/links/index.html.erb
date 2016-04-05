@@ -27,12 +27,21 @@
 		<% else %>
 			<% @links.each do |link| %>
 			<tr>
-			  <td><%= link.long %></td>
+			  <td><%= truncate(link.long, length: 30, separator: '...') %></td>
 			  <td><%= full_url(link.short) %></td>
 			  <td><%= time_ago_in_words(link.created_at) %></td>
-			  <td><%= link_to 'View', show_link_path(link) %></td>
-			  <td><%= link_to 'Edit', update_link_path(link) %></td>
-			  <td><%= link_to 'Delete', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			  <td><%= link_to show_link_path(link) do %>
+					<i class="fa fa-eye"></i> view
+				<% end %>
+			  </td>
+			  <td><%= link_to update_link_path(link) do %>
+					<i class="fa fa-pencil"></i> Edit
+				 <% end %>
+			  </td>
+			  <td><%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
+						<i class="fa fa-trash"></i> Delete
+				  <% end %>
+			  </td>
 			</tr>
 		<% end %>
 	<% end %>

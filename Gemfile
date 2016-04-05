@@ -18,15 +18,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-google'
-gem 'omniauth-twitter'
 gem 'useragent'
 gem "materialize-sass"
 gem "font-awesome-sass"
-
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'simple_token_authentication', '~> 1.0'
+gem 'active_model_serializers'  
  
 gem 'coveralls', require: false
 gem "codeclimate-test-reporter", group: :test, require: nil
