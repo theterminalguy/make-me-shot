@@ -23760,3 +23760,496 @@ LinkTest: test_presenece_of_click_count
 ---------------------------------------
   [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190962]]
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "links" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "long" varchar, "short" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "click_count" integer DEFAULT 0, "active" boolean DEFAULT 't') [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "price" integer, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "provider" varchar, "uid" varchar, "full_name" varchar, "links_count" integer DEFAULT 0) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (1.6ms)[0m  [1mCREATE  INDEX "index_users_on_links_count" ON "users" ("links_count")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_links_count' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_links_count' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "visits" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "link_id" integer, "ip" varchar, "browser" varchar, "browser_version" varchar, "os" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "referer" varchar) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325091426')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160318094703')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160318100340')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160318112914')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160318145753')[0m
+  [1m[35m (1.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160324002901')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160324151158')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160325061209')
+  [1m[36m (1.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160325090138')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAuthenticationTokenToUsers (20160403132641)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "users" ADD "authentication_token" varchar[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_links_count' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_links_count' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE  INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160403132641"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_links_count' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_links_count' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM "links"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "links" ("long", "short", "created_at", "updated_at", "id") VALUES ('https://www.youtube.com/watch?v=eQv0jBMzZ1A', '', '2016-04-05 09:20:01', '2016-04-05 09:20:01', 980190962)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.3ms)[0m  INSERT INTO "users" ("full_name", "email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('Test Two', 'two@test.com', '$2a$04$keX9bzN2sEyNXi3BCxC7.uh9a4gS.NQqDxi.sF042gHVQsRp5Hl3m', '2016-04-05 09:20:01', '2016-04-05 09:20:01', 298486374)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("full_name", "email", "encrypted_password", "created_at", "updated_at", "id") VALUES ('Test One', 'one@test.com', '$2a$04$hVGc/mTMEDJAnkBLiUzSr.RJXlbQ26OBWuA6fRZyf.eJ69pSEvH7G', '2016-04-05 09:20:01', '2016-04-05 09:20:01', 980190962)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "visits"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "visits" ("link_id", "ip", "browser", "browser_version", "os", "created_at", "updated_at", "id") VALUES (980190962, NULL, NULL, NULL, NULL, '2016-04-05 09:20:01', '2016-04-05 09:20:01', 980190962)[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+LinkTest: test_presence_of_short_after_save
+-------------------------------------------
+  [1m[35mLink Load (0.2ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------
+LinkTest: test_presenece_of_click_count
+---------------------------------------
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+LinkTest: test_short_invalid_if_key_word
+----------------------------------------
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------
+LinkTest: test_has_many_visits
+------------------------------
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------
+LinkTest: test_responds_to_url_slug
+-----------------------------------
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------
+LinkTest: test_valid_without_short
+----------------------------------
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------
+LinkTest: test_format_of_long
+-----------------------------
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------
+LinkTest: test_invalid_without_long
+-----------------------------------
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------
+LinkTest: test_responds_to_to_short_url
+---------------------------------------
+  [1m[35mLink Load (0.1ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------
+LinkTest: test_link_valid
+-------------------------
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "links" SET "short" = ? WHERE "links"."id" = ?[0m  [["short", "3YpcGQ"], ["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (8.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+LinksControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)[0m  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.236151"], ["updated_at", "2016-04-05 09:20:01.236151"], ["short", "38Daog"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LinksController#edit as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 980190962]]
+  Rendered shared/_side_bar.html.erb (2.3ms)
+  Rendered links/partials/_form.html.erb (13.2ms)
+  Rendered links/edit.html.erb within layouts/application (25.7ms)
+  Rendered shared/_nav_bar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.3ms)
+Completed 200 OK in 50ms (Views: 43.5ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+LinksControllerTest: test_should_show_link
+------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)[0m  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.318624"], ["updated_at", "2016-04-05 09:20:01.318624"], ["short", "X8grXw"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LinksController#show as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[36mLink Load (0.0ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 980190962]]
+  Rendered shared/_side_bar.html.erb (0.8ms)
+  [1m[36mVisit Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "visits" WHERE "visits"."link_id" = ? LIMIT 1[0m  [["link_id", 980190963]]
+  Rendered links/show.html.erb within layouts/application (13.4ms)
+  Rendered shared/_nav_bar.html.erb (0.2ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+LinksControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.342798"], ["updated_at", "2016-04-05 09:20:01.342798"], ["short", "JqCiTA"]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by LinksController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 980190962]]
+  Rendered shared/_side_bar.html.erb (1.1ms)
+  Rendered links/partials/_form.html.erb (1.5ms)
+  Rendered links/new.html.erb within layouts/application (3.6ms)
+  Rendered shared/_nav_bar.html.erb (0.3ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+LinksControllerTest: test_should_update_link
+--------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)[0m  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.358651"], ["updated_at", "2016-04-05 09:20:01.358651"], ["short", "JZyF4g"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LinksController#update as HTML
+  Parameters: {"link"=>{"long"=>"http://google.com.ng", "short"=>"JZyF4g", "user_id"=>"980190962"}, "id"=>"980190963"}
+  [1m[36mLink Load (0.0ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190963]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/links/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36m (0.8ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+LinksControllerTest: test_should_get_index
+------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)[0m  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.370002"], ["updated_at", "2016-04-05 09:20:01.370002"], ["short", "4BR6jg"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by LinksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 980190962]]
+  Rendered shared/_side_bar.html.erb (1.2ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "links" WHERE "links"."user_id" = ?  [["user_id", 980190962]]
+  [1m[36mLink Load (0.2ms)[0m  [1mSELECT "links".* FROM "links" WHERE "links"."user_id" = ?  ORDER BY created_at DESC[0m  [["user_id", 980190962]]
+  Rendered links/index.html.erb within layouts/application (6.6ms)
+  Rendered shared/_nav_bar.html.erb (0.4ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+LinksControllerTest: test_should_create_link
+--------------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.389973"], ["updated_at", "2016-04-05 09:20:01.389973"], ["short", "34113w"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "links"
+Processing by LinksController#create as HTML
+  Parameters: {"link"=>{"long"=>"http://google.com.ng", "short"=>"34113w", "user_id"=>"980190962"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "links" ("user_id", "long", "short", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 980190962], ["long", "http://google.com.ng"], ["short", "34113w"], ["created_at", "2016-04-05 09:20:01.399928"], ["updated_at", "2016-04-05 09:20:01.399928"]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.com/
+Completed 302 Found in 6ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "links"
+  [1m[36m (1.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------------------------
+LinksControllerTest: test_should_destroy_link
+---------------------------------------------
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "links" ("long", "user_id", "created_at", "updated_at", "short") VALUES (?, ?, ?, ?, ?)[0m  [["long", "http://google.com.ng"], ["user_id", 980190962], ["created_at", "2016-04-05 09:20:01.407596"], ["updated_at", "2016-04-05 09:20:01.407596"], ["short", "i2t2XA"]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "users" SET "links_count" = COALESCE("links_count", 0) + 1 WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "links"[0m
+Processing by LinksController#destroy as HTML
+  Parameters: {"id"=>"980190963"}
+  [1m[35mLink Load (0.0ms)[0m  SELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1  [["id", 980190963]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mDELETE FROM "links" WHERE "links"."id" = ?[0m  [["id", 980190963]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "links_count" = COALESCE("links_count", 0) - 1 WHERE "users"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/dashboard
+Completed 302 Found in 7ms (ActiveRecord: 1.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "links"[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------
+UserTest: test_has_many_links
+-----------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+------------------------------------
+UserTest: test_invalid_without_email
+------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------
+UserTest: test_user_valid
+-------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users" WHERE "users"."authentication_token" = ?[0m  [["authentication_token", "A528P9qcSNpKTKXxXouJ"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "authentication_token" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["authentication_token", "A528P9qcSNpKTKXxXouJ"], ["updated_at", "2016-04-05 09:20:01.434288"], ["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------
+UserTest: test_uniqueness_of_email
+----------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------
+UserTest: test_invalid_without_full_name
+----------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+UserTest: test_presence_of_encrypted_password
+---------------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------
+UserTest: test_match_email_pattern
+----------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 298486374]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------
+VisitTest: test_belongs_to_link
+-------------------------------
+  [1m[35mVisit Load (0.1ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36mLink Load (0.1ms)[0m  [1mSELECT  "links".* FROM "links" WHERE "links"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------
+VisitTest: test_valid
+---------------------
+  [1m[35mVisit Load (0.1ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------
+VisitsControllerTest: test_should_get_new
+-----------------------------------------
+  [1m[36mVisit Load (0.2ms)[0m  [1mSELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by VisitsController#new as HTML
+  Rendered visits/_form.html.erb (20.2ms)
+  Rendered visits/new.html.erb within layouts/application (23.9ms)
+  Rendered shared/_nav_bar.html.erb (8.6ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 54ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+VisitsControllerTest: test_should_destroy_visit
+-----------------------------------------------
+  [1m[35mVisit Load (0.1ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "visits"[0m
+Processing by VisitsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mVisit Load (0.1ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "visits" WHERE "visits"."id" = ?  [["id", 980190962]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/visits
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "visits"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------
+VisitsControllerTest: test_should_get_edit
+------------------------------------------
+  [1m[36mVisit Load (0.1ms)[0m  [1mSELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by VisitsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mVisit Load (0.1ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered visits/_form.html.erb (2.4ms)
+  Rendered visits/edit.html.erb within layouts/application (3.2ms)
+  Rendered shared/_nav_bar.html.erb (0.9ms)
+  Rendered shared/_footer.html.erb (0.1ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+VisitsControllerTest: test_should_update_visit
+----------------------------------------------
+  [1m[36mVisit Load (0.1ms)[0m  [1mSELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by VisitsController#update as HTML
+  Parameters: {"visit"=>{"browser"=>nil, "browser_version"=>nil, "ip"=>nil, "link_id"=>"980190962", "os"=>nil}, "id"=>"980190962"}
+  [1m[35mVisit Load (0.0ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/visits/980190962
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------
+VisitsControllerTest: test_should_get_index
+-------------------------------------------
+  [1m[36mVisit Load (0.1ms)[0m  [1mSELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by VisitsController#index as HTML
+  [1m[35mVisit Load (0.1ms)[0m  SELECT "visits".* FROM "visits"
+  Rendered visits/index.html.erb within layouts/application (1.8ms)
+  Rendered shared/_nav_bar.html.erb (0.7ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.1ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------
+VisitsControllerTest: test_should_show_visit
+--------------------------------------------
+  [1m[36mVisit Load (0.1ms)[0m  [1mSELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+Processing by VisitsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mVisit Load (0.0ms)[0m  SELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1  [["id", 980190962]]
+  Rendered visits/show.html.erb within layouts/application (1.0ms)
+  Rendered shared/_nav_bar.html.erb (1.0ms)
+  Rendered shared/_footer.html.erb (0.0ms)
+Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+VisitsControllerTest: test_should_create_visit
+----------------------------------------------
+  [1m[36mVisit Load (0.1ms)[0m  [1mSELECT  "visits".* FROM "visits" WHERE "visits"."id" = ? LIMIT 1[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "visits"
+Processing by VisitsController#create as HTML
+  Parameters: {"visit"=>{"browser"=>nil, "browser_version"=>nil, "ip"=>nil, "link_id"=>"980190962", "os"=>nil}}
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "visits" ("link_id", "created_at", "updated_at") VALUES (?, ?, ?)  [["link_id", 980190962], ["created_at", "2016-04-05 09:20:01.579349"], ["updated_at", "2016-04-05 09:20:01.579349"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/visits/980190963
+Completed 302 Found in 3ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "visits"
+  [1m[36m (0.7ms)[0m  [1mrollback transaction[0m

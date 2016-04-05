@@ -1,21 +1,9 @@
 Rails.application.routes.draw do
-  
-  namespace :api do
-    namespace :v1 do
-      get '/users/info/:auth_token' => 'users#info'
-      get '/users/links/:auth_token' => 'users#links'
-      get '/users/links/recent/:auth_token' => 'users#recent'
-      get '/users/links/popular/:auth_token' => 'users#popular_urls'
-      get '/users/popular/:auth_token' => 'users#popular_users'
-    end 
-  end
-  
   root 'pages#index'
   resources :visits
   get '/recent_urls' => 'links#recent', as: 'recent_urls'
   get '/top_users' => 'links#top_users', as: 'top_users'
   get '/popular_links' => 'links#popular_links', as: 'popular_links'
-  get '/api_key' => 'links#api_key', as: 'api_key'
   resources :links
   devise_for :users, :path => '',
              :path_names => {

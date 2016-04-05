@@ -1,9 +1,5 @@
 class ApplicationController < ActionController::Base
-  acts_as_token_authentication_handler_for User, fallback_to_devise: false
-  before_filter :authenticate_user!
-  
-  #protect_from_forgery with: :exception
-  protect_from_forgery with: :null_session 
+  protect_from_forgery with: :exception
   before_filter :configure_devise_params, if: :devise_controller?
   
   def configure_devise_params
