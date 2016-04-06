@@ -1,16 +1,12 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'coveralls'
 require 'simplecov'
-require "codeclimate-test-reporter"
 Coveralls.wear!
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  SimpleCov::Formatter::HTMLFormatter,
-  Coveralls::SimpleCov::Formatter
-]
 SimpleCov.start
-CodeClimate::TestReporter.start
 
 
 module ActiveSupport
