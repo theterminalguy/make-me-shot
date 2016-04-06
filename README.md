@@ -1,5 +1,7 @@
 # make-me-shot
-[![Code Climate](https://codeclimate.com/github/andela-sdamian/make-me-shot/badges/gpa.svg)](https://codeclimate.com/github/andela-sdamian/make-me-shot)  [![Coverage Status](https://coveralls.io/repos/github/andela-sdamian/make-me-shot/badge.svg?branch=staging)](https://coveralls.io/github/andela-sdamian/make-me-shot?branch=master)  [![Circle CI](https://circleci.com/gh/andela-sdamian/make-me-shot.svg?style=svg)](https://circleci.com/gh/andela-sdamian/make-me-shot) 
+[![Code Climate](https://codeclimate.com/github/andela-sdamian/make-me-shot/badges/gpa.svg)](https://codeclimate.com/github/andela-sdamian/make-me-shot)  [![Coverage Status](https://coveralls.io/repos/github/andela-sdamian/make-me-shot/badge.svg?branch=staging)](https://coveralls.io/github/andela-sdamian/make-me-shot?branch=master)  [![Circle CI](https://circleci.com/gh/andela-sdamian/make-me-shot.svg?style=svg)](https://circleci.com/gh/andela-sdamian/make-me-shot)
+
+[![Build Status](https://travis-ci.org/andela-sdamian/make-me-shot.svg?branch=master)](https://travis-ci.org/andela-sdamian/make-me-shot)
 
 <p>
 make-me-shot is a url shortner, built with ruby on rails. The application allows you to shorten any given url into fewer characters. It is a clone of popular url shornteners like <a href="//tinyurl.com">Tinyurl</a> , <a href="//bitly.com">Bitly</a> and <a href="#">Google Shortner</a>.
