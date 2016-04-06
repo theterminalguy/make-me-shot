@@ -259,6 +259,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   simple_token_authentication (~> 1.0)
+  simplecov
   spring
   sqlite3
   therubyracer
