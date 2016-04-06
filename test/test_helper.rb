@@ -1,10 +1,9 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
-require 'coveralls'
-require 'codeclimate-test-reporter'
-Coveralls.wear!
+require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
+
 
 module ActiveSupport
   class TestCase

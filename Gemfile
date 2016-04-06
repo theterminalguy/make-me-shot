@@ -17,7 +17,6 @@ gem 'font-awesome-sass'
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_token_authentication', '~> 1.0'
 gem 'active_model_serializers'
-gem 'coveralls', require: false
 
 group :development, :test do
   gem 'byebug'

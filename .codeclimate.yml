@@ -1,7 +1,15 @@
----
+languages:
+   Ruby: true
+   JavaScript: false
 engines:
-  fixme:
+  rubocop:
     enabled: true
 ratings:
-  paths: []
-exclude_paths: []
+   paths:
+   - app/**
+   - lib/**
+   - "**.rb"
+   - "**.go"
+exclude_paths:
+- spec/**/*
+- vendor/**/*
