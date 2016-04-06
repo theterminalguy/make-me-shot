@@ -1,0 +1,13 @@
+<% if @top_users.empty? %>
+		<a href="#" class="collection-item">No top user yet!</a>
+<% else %>
+	<% @top_users.each do |user| %>
+		<li class="collection-item avatar">
+			<%= image_tag("user.png", class:"circle", alt:"Profile Picture") %>
+			<span class="title"><%= user.full_name %></span>
+			 <p class="small">Member Since: <%= time_ago_in_words(user.created_at) %><br>
+				 Shortened Links: <%= user.links_count %> <br>
+			  </p>
+			</li>
+	<% end %> 
+<% end %>

@@ -1,0 +1,21 @@
+<div class="row">
+<%= render 'shared/side_bar' %>
+  	<div class="col s9">
+  		<p id="notice"><%= notice %></p>
+  		<h2 class="tab">Api Key</h2>
+  		
+  		<div class="col s12">
+			
+
+				<div id="shot_url" class="card-panel">
+					<h4 id="copy_target"><%= @api_key %></h4>
+					
+					<span class="pull-right">
+						<button class="btn waves-effect waves-light blue-grey" id="btn_copy" data-clipboard-target="#copy_target">Copy
+    <i class="material-icons right"></i>
+						</button>
+					</span>
+				</div>
+			</div>
+  	</div>
+</div>

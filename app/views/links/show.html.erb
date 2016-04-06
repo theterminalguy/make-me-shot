@@ -1,0 +1,92 @@
+<%= notify %>
+<div class="row">
+<%= render 'shared/side_bar' %>
+  	
+  	<div class="col s9">
+  		<h2 class="tab">My URLs</h2>
+  		<div class="divider"></div>
+  		<div class="row">
+  			<div class="col s12">
+		
+		<p>
+		  <b>Long:</b>
+		  <%= @link.long %>
+		</p>
+		
+		<p>
+		  <b>Short:</b>
+		  <%= full_url(@link.short) %>
+		</p>
+		
+		<p>
+		  <b>Created on:</b>
+		  <%= @link.created_at.strftime("%B %d, %Y") %>
+		</p>
+		
+		<p>
+		  <b>Click count:</b>
+		  <%= @link.click_count %> clicks
+		</p>
+		
+		<p>
+			<b>Link Status:</b>
+			<% if @link.active %>
+				Enabled
+			<% else %>
+				Disabled
+			<% end %>
+		</p>
+		
+		<p>
+		  <b>Info:</b>
+		  URL was initialy <%= @link.long.length %> characters and was reduce to <%= @link.short.length %> characters 
+		</p>	
+
+	<div class="right">
+		<%= link_to update_link_path(@link) do %>
+			<i class="fa fa-pencil"></i> Edit
+		<% end %> 
+		|
+		<%= link_to user_dashboard_path do %>
+			<i class="fa fa-chevron-left"></i> Back
+		<% end %> 
+	</div>
+	
+  				  			</div>
+  		</div>
+		
+	<h5>Statistics</h5>
+      <table class="responsive-table">
+        <thead>
+          <tr>
+			  <th data-field="data">Date</th>
+              <th data-field="id">IP</th>
+              <th data-field="browser">Browser</th>
+              <th data-field="version">Browser_version</th>
+			  <th data-feild="platform">OS</th>
+			  <th data-field="ref">Referer</th>
+          </tr>
+        </thead>
+
+        <tbody>
+		
+		<% if @link.visits.empty? %>
+			<tr>
+				<td colspan="6">No visit yet!</td>
+			</tr>
+		<% else %>
+		  <% @link.visits.each do |visit| %>
+          <tr>
+			<td><%= visit.created_at.strftime("%B %d, %Y") %></td>
+            <td><%= visit.ip %></td>
+            <td><%= visit.browser %></td>
+            <td><%= visit.browser_version %></td>
+			<td><%= visit.os %></td>
+			<td><%= visit.referer %></td>
+          </tr>
+		 <% end %>
+		<% end %> 
+        </tbody>
+      </table>	
+  	</div>
+</div>

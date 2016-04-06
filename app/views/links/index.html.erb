@@ -1,0 +1,58 @@
+<%= notify %>
+<div class="row">
+<%= render 'shared/side_bar' %>
+  	
+  	<div class="col s9">
+  		<h2 class="tab">My URLs</h2>
+  		<div class="row">
+  			<div class="col s12">
+  				  		<div class="divider"></div><br />	
+  				<table class="highlight responsive-table">
+  <thead>
+    <tr>
+      <th>Long</th>
+      <th>Short</th>
+      <th>Since</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	<% if @links.nil? || @links.empty? %>
+		<tr>
+			<td colspan="3">
+				<strong>No link(s) added yet!</strong>	
+			</td>
+		</tr>
+		<% else %>
+			<% @links.each do |link| %>
+			<tr>
+			  <td><%= truncate(link.long, length: 30, separator: '...') %></td>
+			  <td><%= full_url(link.short) %></td>
+			  <td><%= time_ago_in_words(link.created_at) %></td>
+			  <td><%= link_to show_link_path(link) do %>
+					<i class="fa fa-eye"></i> view
+				<% end %>
+			  </td>
+			  <td><%= link_to update_link_path(link) do %>
+					<i class="fa fa-pencil"></i> Edit
+				 <% end %>
+			  </td>
+			  <td><%= link_to link, method: :delete, data: { confirm: 'Are you sure?' } do %>
+						<i class="fa fa-trash"></i> Delete
+				  <% end %>
+			  </td>
+			</tr>
+		<% end %>
+	<% end %>
+  </tbody>
+</table>
+
+
+  				  			</div>
+  		</div>
+  	</div><!-- ende of talbe div -->
+
+
+
+</div>

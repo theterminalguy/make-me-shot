@@ -1,0 +1,32 @@
+<div class = "navbar-fixed">
+	
+
+	<nav>
+    <div class="nav-wrapper">
+    	
+      <a href="/" class="brand-logo left"><span id="log">make-me-shot</span></a>
+
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+      		
+      <% unless user_signed_in?  %>
+      		<li class="<%= active_class(root_url, 'active') %>"><%= link_to 'Home', root_url %></li>		
+      	<li class="<%= active_class('/pages/about', 'active') %>"><%= link_to 'About', '/pages/about' %></li>
+      	<li class="<%= active_class('/pages/contact', 'active') %>"><%= link_to 'Contact', '/pages/contact' %></li>
+      	<li class="<%= active_class('/pages/advertise', 'active') %>"><%= link_to 'Advertise', '/pages/advertise' %></li>
+      <% end %>
+      
+      	<% if user_signed_in? %>
+      	      	
+      	      	<li><%= link_to current_user.full_name, user_dashboard_path %></li>
+				<li><%= link_to destroy_user_session_path, method: :delete do %>
+						<i class="fa fa-sign-out"></i>
+					<% end %>
+				</li>
+      	 <% else %>
+      	 		<li class="<%= active_class('/register', 'active') %>"><%= link_to 'Sign Up', '/register'%></li>
+      	 		<li class="<%= active_class('/login', 'active') %>"><%= link_to 'Login', '/login'%></li>
+      	<% end %>
+      </ul>
+    </div>
+  </nav>
+</div>

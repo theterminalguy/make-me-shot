@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MakeMeShot</title>
+  <style>
+.field {
+	margin:12px;
+	margin-left: 8px;
+}
+  </style>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+
+<%= render "shared/nav_bar" %>
+
+<%= yield %>
+
+
+
+<%= render "shared/footer" %>
+</body>
+</html>

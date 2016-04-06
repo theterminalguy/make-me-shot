@@ -1,0 +1,16 @@
+ <div class="col s3">
+  		<div id="side-menu" class="" style="height:auto">
+  			<%= image_tag("jack.png", class:"circle", alt:"Profile Picture") %>  
+      <div class="collection">
+	   <a href="<%= user_dashboard_path %>" class="collection-item <%= active_class(user_dashboard_path, 'active')%>">Dashboard</a>
+	   
+	   <a href="<%= new_short_path %>" class="collection-item <%= active_class(new_short_path, 'active')%>">New Short</a>
+	   
+	   <a href="<%= recent_urls_path %>" class="collection-item <%= active_class(recent_urls_path, 'active')%>">Recent URLs</a>
+	   
+	   <a href="<%= top_users_path %>" class="collection-item <%= active_class(top_users_path, 'active')%>">Top Users</a>
+	   
+	   
+      </div>		
+  		</div>
+  	</div>

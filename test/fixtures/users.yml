@@ -1,0 +1,8 @@
+two:
+  full_name: 'Test Two'
+  email: 'two@test.com'
+  encrypted_password: <%= encrypted_password %> 
+one:
+  full_name: 'Test One'
+  email: 'one@test.com'
+  encrypted_password: <%= encrypted_password %>

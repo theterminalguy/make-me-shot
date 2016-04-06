@@ -1,0 +1,31 @@
+<div class="row">
+<%= render 'shared/side_bar' %>
+
+
+  	<div class="col s9">
+  		<h2 class="tab">Edit Links</h2>
+  		<div class="divider"></div>
+  		<div class="row">
+  			<div class="col s12">
+
+
+<%= render 'links/partials/form' %> <br />
+
+
+
+	<div class="right">
+		<%= link_to show_link_path(@link) do %>
+			<i class="fa fa-eye"></i> view
+
+		<% end %>
+		|
+		<%= link_to user_dashboard_path do %>
+			<i class="fa fa-chevron-left"></i> Back
+		<% end %>
+	</div>
+</div>
+  		</div>
+  	</div>
+
+
+</div>
