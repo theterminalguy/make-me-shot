@@ -25017,6 +25017,7 @@ Redirected to http://test.host/visits/980190963
 Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
   [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "visits"
   [1m[36m (5.4ms)[0m  [1mrollback transaction[0m
+<<<<<<< HEAD
   [1m[36mVisit Load (2.9ms)[0m  [1mSELECT "visits".* FROM "visits"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -48674,3 +48675,5 @@ UserTest: test_has_many_links
   [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 980190962]]
   [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 298486374]]
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+=======
+>>>>>>> d885e272e5f92b1834352db5bdff98903e1d7661
