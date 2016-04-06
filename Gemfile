@@ -28,6 +28,8 @@ group :development, :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'launchy'
   gem 'coveralls', require: false
+  gem "simplecov", require: false
+
 end
 
 group :development do
