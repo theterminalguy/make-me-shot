@@ -6,7 +6,7 @@ class CreateVisits < ActiveRecord::Migration
       t.string :browser
       t.string :browser_version
       t.string :os
-    
+
       add_index :visits, :link_id
       t.timestamps null: false
     end

@@ -2,17 +2,21 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'coveralls'
-require "codeclimate-test-reporter"
+require 'codeclimate-test-reporter'
 Coveralls.wear!
 CodeClimate::TestReporter.start
 
-class ActiveSupport::TestCase
-  fixtures :all
-  self.use_transactional_fixtures = true
+module ActiveSupport
+  class TestCase
+    fixtures :all
+    self.use_transactional_fixtures = true
+  end
 end
 
-class ActionController::TestCase
-  include Devise::TestHelpers
+module ActionController
+  class TestCase
+    include Devise::TestHelpers
+  end
 end
 
 module FixtureFileHelpers

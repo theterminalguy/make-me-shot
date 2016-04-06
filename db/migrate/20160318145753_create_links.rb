@@ -4,8 +4,8 @@ class CreateLinks < ActiveRecord::Migration
       t.integer :user_id
       t.string :long
       t.string :short
-      
-      add_index :links, :user_id 
+
+      add_index :links, :user_id
       t.timestamps null: false
     end
   end
