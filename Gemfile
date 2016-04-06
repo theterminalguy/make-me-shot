@@ -27,6 +27,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'codeclimate-test-reporter', require: nil
   gem 'launchy'
+  gem 'coveralls', require: false
 end
 
 group :development do
