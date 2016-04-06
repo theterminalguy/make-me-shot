@@ -14,7 +14,7 @@ Devise.setup do |config|
   config.sign_out_via = :delete
 
   config.secret_key = '9a98c0a1692eccf326a0f3df404f24fa8e1855f44ec8005ba07aa04162a627c7aba9a27c88911c1daadbb9bf64551960f62eb90c8a48c731eeaa872c2da7ee08'
-  
+
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
