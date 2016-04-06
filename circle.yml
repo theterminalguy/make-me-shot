@@ -2,7 +2,7 @@ machine:
   ruby:
     version: 2.2.3
   environment:
-    CODECLIMATE_REPO_TOKEN: 3ca3682c1da2816ced64d5b432f939efd7d3cb6b3072d2713d0d21b21ea9af1
+    CODECLIMATE_REPO_TOKEN: 3ca3682c1da2816ced64d5b432f939efd7d3cb6b3072d2713d0d21b21ea9af1f bundle exec rake
 dependencies:
   pre:
     - gem install bundler -v 1.11.2
