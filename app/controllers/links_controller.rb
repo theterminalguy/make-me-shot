@@ -4,7 +4,6 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update,
                                             :destroy, :index,
                                             :new, :recent]
-
   before_action :check_owner, only: [:show, :edit, :update, :destroy]
 
   def recent
@@ -47,7 +46,6 @@ class LinksController < ApplicationController
             else
               Link.new(link_params)
             end
-
     respond_to do |format|
       if @link.save
         format.html { redirect_to :back, notice: @link.short }

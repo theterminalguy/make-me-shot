@@ -31,7 +31,7 @@ function isFullNameValid() {
 }
 
 function isSameOrigin(url) {
-    if (url.indexOf('make-me-shot') >= 0 ){
+    if (url.indexOf('andela-mms') >= 0 ){
         return true; 
     }
 }

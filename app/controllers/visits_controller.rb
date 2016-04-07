@@ -25,7 +25,6 @@ class VisitsController < ApplicationController
   # POST /visits.json
   def create
     @visit = Visit.new(visit_params)
-
     respond_to do |format|
       if @visit.save
         format.html do
