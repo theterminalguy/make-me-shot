@@ -4,7 +4,7 @@
 
 
 <p>
-<a href="andela-mms.herokuapp.com">make-me-shot</a> is a URL shortner, built with ruby on rails. The application allows you to shorten any given URL into fewer characters. It is a clone of popular URL shorteners like <a href="//tinyurl.com">Tinyurl</a> , <a href="//bitly.com">Bitly</a> and <a href="https://goo.gl/">Google Shortner</a>.
+<a href="http://andela-mms.herokuapp.com">andela-mms.herokuapp.com</a> is a URL shortner, built with ruby on rails. The application allows you to shorten any given URL into fewer characters. It is a clone of popular URL shorteners like <a href="//tinyurl.com">Tinyurl</a> , <a href="//bitly.com">Bitly</a> and <a href="https://goo.gl/">Google Shortner</a>.
 </p>
 
 ##Screenshots
