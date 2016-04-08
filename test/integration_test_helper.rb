@@ -15,3 +15,15 @@ module ActionDispatch
     end
   end
 end
+
+module Sample
+  class User
+    attr_reader :email, :password, :full_name
+
+    def initialize(hash)
+      @email = hash[:email]
+      @password = hash[:password] || 'password'
+      @full_name = hash[:full_name]
+    end
+  end
+end
