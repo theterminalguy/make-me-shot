@@ -6,7 +6,7 @@ class VisitorVisitsSite < ActionDispatch::IntegrationTest
     @new_user = Sample::User.new(full_name: 'Jackson Mike', email: 'jack@mike.com')
   end
 
-  def driver
+  def driver!
     Capybara.current_driver = :selenium
   end
 
@@ -46,7 +46,7 @@ class VisitorVisitsSite < ActionDispatch::IntegrationTest
   end
 
   test 'visitor should create an account' do
-    driver
+    driver!
     visit '/register'
     within '#new_user' do
       fill_in 'user_full_name', with: @new_user.full_name
@@ -65,7 +65,7 @@ class VisitorVisitsSite < ActionDispatch::IntegrationTest
   end
 
   test 'visitor should login' do
-    driver
+    driver!
     visit '/login'
     within '#new_user' do
       fill_in 'user_email', with: @user.email

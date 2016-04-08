@@ -13,10 +13,6 @@ class RedirectController < ApplicationController
 
   private
 
-  def visitor_details(id)
-    BrowserDetail.new(request, id)
-  end
-
   def short_link
     short_url = params[:short_url]
     @short = Link.where(short: short_url).first
@@ -27,6 +23,10 @@ class RedirectController < ApplicationController
     else
       @short
     end
+  end
+  
+  def visitor_details(id)
+    BrowserDetail.new(request, id)
   end
 
   def link_params

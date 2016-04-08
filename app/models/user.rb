@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :links
 
   scope :popular_users, lambda {
-    order('links_count desc').select(:full_name, :created_at, :links_count)
-      .limit(3)
+    order('links_count DESC').pluck(:full_name, :created_at, :links_count)
+      .take(3)
   }
 end

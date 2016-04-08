@@ -16,7 +16,6 @@ class Link < ActiveRecord::Base
                                         edit update
                                         delete destroy
                                         new show)
-
   scope :users_recent, lambda {
     order('created_at DESC')
   }
@@ -28,10 +27,10 @@ class Link < ActiveRecord::Base
 
   scope :popular_links, lambda {
     order('click_count DESC')
-      .select(:short, :click_count)
-      .limit(5).to_a
+      .pluck(:short, :click_count)
+      .take(5)
   }
-
+  
   def to_short_url
     self.short = if short.nil? || short.empty?
                    url_slug
