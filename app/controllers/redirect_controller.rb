@@ -26,7 +26,7 @@ class RedirectController < ApplicationController
   end
   
   def visitor_details(id)
-    BrowserDetail.new(request, id)
+    Browser.new(request, id)
   end
 
   def link_params

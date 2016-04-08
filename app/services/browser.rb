@@ -1,4 +1,4 @@
-class BrowserDetail
+class Browser
   attr_reader :request, :link_id
 
   def initialize(request_object, link_id)
