@@ -1,5 +1,3 @@
-<a href="#" target="_blank"><img src="http://s21.postimg.org/jrckhf2dz/Screen_Shot_2016_04_07_at_9_38_14_AM.png" border="0" alt="Image and video hosting by TinyPic"></a>
-
 [![Code Climate](https://codeclimate.com/github/andela-sdamian/make-me-shot/badges/gpa.svg)](https://codeclimate.com/github/andela-sdamian/make-me-shot) [![Build Status](https://travis-ci.org/andela-sdamian/make-me-shot.svg?branch=master)](https://travis-ci.org/andela-sdamian/make-me-shot) [![Coverage Status](https://coveralls.io/repos/github/andela-sdamian/make-me-shot/badge.svg?branch=master)](https://coveralls.io/github/andela-sdamian/make-me-shot?branch=master)
 
 
@@ -7,13 +5,13 @@
 <a href="http://andela-mms.herokuapp.com">make-me-shot</a> is a URL shortner, built with ruby on rails. The application allows you to shorten any given URL into fewer characters. It is a clone of popular URL shorteners like <a href="//tinyurl.com">Tinyurl</a> , <a href="//bitly.com">Bitly</a> and <a href="https://goo.gl/">Google Shortner</a>.
 </p>
 
-##Screenshots
+## Screenshots
 
 <a href="http://i67.tinypic.com/24y4llc.jpg" target="_blank"><img src="http://i67.tinypic.com/24y4llc.jpg" border="0" alt="Image and video hosting by TinyPic"></a>
 
 
 
-##How can I get started?
+## How can I get started?
 <p>
 Getting started is simply easy. Just visit <a href="http://andela-mms.herokuapp.com">andela-mms.herokuapp.com</a> and create an account to start your experiece. However, if you want to get started as a contributor, please scroll down to the contributing section below.
 
@@ -21,7 +19,7 @@ More info about the application can be found on the website about page visit <a 
 </p>
 
 
-##External dependencies 
+## External dependencies 
 <p>
 <a href="andela-mms.herokuapp.com">make-me-shot</a> makes use of few dependecies some of which includes:
 <ul>
@@ -33,7 +31,7 @@ More info about the application can be found on the website about page visit <a 
 For a full list of dependcies please check our <a href="https://github.com/andela-sdamian/make-me-shot/blob/master/Gemfile">Gemfile</a>
 </p>
 
-##How do I run test?
+## How do I run test?
 <p>
 make-me-shot uses the default rails mini test and the Capybara gem for integration test. Continuous Integration is carried out via Travis CI and CodeClimate. Coveralls.io is responsible for our test coverage report. 
 If you fork/clone this repo on you device, you woul have to run the test using 
@@ -54,7 +52,7 @@ If you fork/clone this repo on you device, you woul have to run the test using
 </p>
 
 
-##Features of the application
+## Features of the application
 
 <table border="1" style="padding:10px; width:100%; text-align:left">
 <tr>
@@ -142,7 +140,7 @@ If you fork/clone this repo on you device, you woul have to run the test using
 </tr>
 </table>
 
-##Limitations
+## Limitations
 
 <p>
 <ul>
@@ -155,13 +153,13 @@ If you fork/clone this repo on you device, you woul have to run the test using
 Currently, our API is in beta and have not been release publicly. Do ensure your check our wiki for updates on when we release our API. 
 </p>
 
-##Contributing 
+## Contributing 
 
 <p>
 Bug reports and pull requests are welcome on GitHub. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the <a href="http://todogroup.org/opencodeofconduct/">Contributor Covenant code of conduct</a>.
 </p>
 
-##License
+## License
 
 <p>
 This app is available as open source under the terms of the <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GNU Public License</a>
